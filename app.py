@@ -64,6 +64,9 @@ class JobSeekerSkill(db.Model):
     seeker_id = db.Column(db.Integer, db.ForeignKey("job_seeker.id"), primary_key=True)
     skill_id = db.Column(db.Integer, db.ForeignKey("skill.id"), primary_key=True)
 
+with app.app_context():
+    db.create_all()
+
 # ------------------ Routes ------------------
 @app.route("/")
 def index():
