@@ -97,9 +97,3 @@ online_job_portal/
 - **Abhishek Ashok Rodagi** (23BCE0795)
 - **Mohith V** (23BCT0181)
 
-- **Slot**: L43 + L44
-- **Venue**: SJT515
-
----
-
-*Built as a case study for Database Systems course demonstrating complete CRUD operations and database relationships.*
