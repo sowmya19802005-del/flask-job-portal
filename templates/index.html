@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Dashboard</h2>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>{{ stats.jobseekers }}</h3>
+            <p>Job Seekers</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ stats.employers }}</h3>
+            <p>Employers</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ stats.jobs }}</h3>
+            <p>Jobs Posted</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ stats.applications }}</h3>
+            <p>Applications</p>
+        </div>
+    </div>
+    
+    <div class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="action-buttons">
+            <a href="{{ url_for('add_jobseeker') }}" class="btn btn-primary">Add JobSeeker</a>
+            <a href="{{ url_for('add_employer') }}" class="btn btn-primary">Add Employer</a>
+            <a href="{{ url_for('add_job') }}" class="btn btn-primary">Post Job</a>
+            <a href="{{ url_for('add_application') }}" class="btn btn-primary">New Application</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

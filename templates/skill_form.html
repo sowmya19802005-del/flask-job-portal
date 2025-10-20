@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{% if skill %}Edit{% else %}Add New{% endif %} Skill</h2>
+
+<form method="POST" class="form">
+    <div class="form-group">
+        <label for="skill_name">Skill Name:</label>
+        <input type="text" id="skill_name" name="skill_name" 
+               value="{{ skill.skill_name if skill }}" required>
+    </div>
+    
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+            {% if skill %}Update{% else %}Create{% endif %} Skill
+        </button>
+        <a href="{{ url_for('skill_list') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+{% endblock %}

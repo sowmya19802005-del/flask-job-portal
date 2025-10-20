@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header-actions">
+    <h2>Job Seekers</h2>
+    <a href="{{ url_for('add_jobseeker') }}" class="btn btn-primary">Add New JobSeeker</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for seeker in jobseekers %}
+        <tr>
+            <td>{{ seeker.id }}</td>
+            <td>{{ seeker.name }}</td>
+            <td>{{ seeker.email }}</td>
+            <td>{{ seeker.phone or 'N/A' }}</td>
+            <td class="actions">
+                <a href="{{ url_for('edit_jobseeker', id=seeker.id) }}" class="btn btn-edit">Edit</a>
+                <a href="{{ url_for('delete_jobseeker', id=seeker.id) }}" class="btn btn-delete" 
+                   onclick="return confirm('Delete this job seeker?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

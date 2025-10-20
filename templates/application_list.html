@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header-actions">
+    <h2>Applications</h2>
+    <a href="{{ url_for('add_application') }}" class="btn btn-primary">New Application</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Job Seeker</th>
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Application Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.id }}</td>
+            <td>{{ application.jobseeker.name }}</td>
+            <td>{{ application.job.title }}</td>
+            <td>{{ application.job.employer.company_name }}</td>
+            <td>{{ application.application_date.strftime('%Y-%m-%d') }}</td>
+            <td>
+                <span class="status-{{ application.status|lower }}">
+                    {{ application.status }}
+                </span>
+            </td>
+            <td class="actions">
+                <a href="{{ url_for('edit_application', id=application.id) }}" class="btn btn-edit">Edit</a>
+                <a href="{{ url_for('delete_application', id=application.id) }}" class="btn btn-delete" 
+                   onclick="return confirm('Delete this application?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

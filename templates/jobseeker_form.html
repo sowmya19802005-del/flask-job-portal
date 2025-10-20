@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{% if jobseeker %}Edit{% else %}Add New{% endif %} JobSeeker</h2>
+
+<form method="POST" class="form">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ jobseeker.name if jobseeker }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ jobseeker.email if jobseeker }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="{{ jobseeker.password if jobseeker }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="{{ jobseeker.phone if jobseeker }}">
+    </div>
+    
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+            {% if jobseeker %}Update{% else %}Create{% endif %} JobSeeker
+        </button>
+        <a href="{{ url_for('jobseeker_list') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+{% endblock %}

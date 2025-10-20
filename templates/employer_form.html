@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{% if employer %}Edit{% else %}Add New{% endif %} Employer</h2>
+
+<form method="POST" class="form">
+    <div class="form-group">
+        <label for="company_name">Company Name:</label>
+        <input type="text" id="company_name" name="company_name" 
+               value="{{ employer.company_name if employer }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" 
+               value="{{ employer.email if employer }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" 
+               value="{{ employer.password if employer }}" required>
+    </div>
+    
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+            {% if employer %}Update{% else %}Create{% endif %} Employer
+        </button>
+        <a href="{{ url_for('employer_list') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header-actions">
+    <h2>Jobs</h2>
+    <a href="{{ url_for('add_job') }}" class="btn btn-primary">Post New Job</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Salary</th>
+            <th>Posted Date</th>
+            <th>Applications</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.id }}</td>
+            <td>{{ job.title }}</td>
+            <td>{{ job.employer.company_name }}</td>
+            <td>${{ "%.2f"|format(job.salary) }}</td>
+            <td>{{ job.posted_date.strftime('%Y-%m-%d') }}</td>
+            <td>{{ job.applications|length }}</td>
+            <td class="actions">
+                <a href="{{ url_for('edit_job', id=job.id) }}" class="btn btn-edit">Edit</a>
+                <a href="{{ url_for('delete_job', id=job.id) }}" class="btn btn-delete" 
+                   onclick="return confirm('Delete this job?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <title>{% block title %}Job Portal{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Online Job Portal</h1>
+        <nav>
+          <a href="{{ url_for('index') }}">Dashboard</a>
+          <a href="{{ url_for('jobseeker_list') }}">JobSeekers</a>
+          <a href="{{ url_for('employer_list') }}">Employers</a>
+          <a href="{{ url_for('job_list') }}">Jobs</a>
+          <a href="{{ url_for('application_list') }}">Applications</a>
+          <a href="{{ url_for('skill_list') }}">Skills</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="alert">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 Online Job Portal - Case Study | Done by Abhishek and
+          Mohith
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
