@@ -1,0 +1,84 @@
+graph TD
+    %% ---------------------------------------------
+    %% PHASE 1: INITIAL SEPARATION
+    %% ---------------------------------------------
+    subgraph Phase_1 [Phase 1: Academic & Geographic Entry 2027 - 2029]
+        Track_A1[BF TRACK:<br>ISI MSQE Delhi<br>Timeline: 2027 - 2029]
+        
+        Track_B1[GF TRACK:<br>Employment in India<br>Timeline: 2027 - 2028]
+        Track_B2[GF TRACK:<br>US MS Program Entry on F-1 Visa<br>Timeline: 2028 - 2030]
+        
+        Track_B1 --> Track_B2
+    end
+
+    %% ---------------------------------------------
+    %% PHASE 2: PARALLEL US STATUS & FINANCIALS
+    %% ---------------------------------------------
+    subgraph Phase_2 [Phase 2: US Status Maintenance 2029 - 2033]
+        Track_A2[BF TRACK:<br>Top 20 PhD Program Entry on F-1 Visa<br>PhD Stipend: $35,000 - $55,000 USD/Year<br>Timeline: 2029 - 2035]
+        
+        Track_B3[GF TRACK:<br>MS Graduation -> Enters 3-Year STEM OPT Employment<br>Timeline: 2030 - 2033]
+    end
+    
+    Track_A1 --> Track_A2
+    Track_B2 --> Track_B3
+
+    %% ---------------------------------------------
+    %% PHASE 3: ANNUAL LOTTERY REGISTRATIONS
+    %% ---------------------------------------------
+    subgraph Phase_3 [Phase 3: Annual H-1B Corporate Lottery Cycles]
+        L1[2031 Lottery Registration:<br>Independent Attempt 1 via Employer]
+        L2[2032 Lottery Registration:<br>Attempt 2 via Employer]
+        L3[2033 Lottery Registration:<br>Attempt 3 via Employer]
+        
+        L1 -- Not Selected --> L2
+        L2 -- Not Selected --> L3
+    end
+    
+    Track_B3 --> L1
+
+    %% ---------------------------------------------
+    %% DECISION FORK (POST-LOTTERY 3)
+    %% ---------------------------------------------
+    Decision{Final Result After 3 Lottery Cycles}
+    L1 -- Selected Year 1 --> H1B_App
+    L2 -- Selected Year 2 --> H1B_App
+    L3 -- Selected Year 3 --> Decision
+    
+    %% SCENARIO A: H-1B SELECTION
+    subgraph Scenario_A [Scenario A: H-1B Selected]
+        H1B_App[Change of Status to Independent H-1B Work Visa]
+        Maintain_Ind[Status: Maintained<br>Employment: Continuous Corporate Career<br>Marital Status: Unchanged / Deferred]
+        
+        H1B_App --> Maintain_Ind
+    end
+
+    %% SCENARIO B: H-1B NON-SELECTION
+    subgraph Scenario_B [Scenario B: H-1B Non-Selection]
+        Action_Marry[Marry BF in 2033 for Status Safety Net]
+        F2_Filing[File Form I-539 Change of Status: F-1 to F-2 Dependent]
+        Frugal_Living[CRITICAL CONSTRAINT:<br>F-2 Status Forbids Work Authorization<br>Must Live Frugally on PhD Stipend + Her Job Savings]
+        
+        Action_Marry --> F2_Filing
+        F2_Filing --> Frugal_Living
+    end
+
+    Decision -- H-1B Selected --> H1B_App
+    Decision -- H-1B Not Selected --> Action_Marry
+
+    %% ---------------------------------------------
+    %% PHASE 4: POST-2035 HORIZON
+    %% ---------------------------------------------
+    subgraph Phase_4 [Phase 4: Post-2035 Long-Term Stay & Compensation Horizon]
+        Academia_Job[Mohith Secures Top 20 Academia Professorship Employment]
+        Cap_Exempt[Transitions to Non-H-1B Cap-Exempt Status<br>Bypasses Private-Sector Lottery Caps]
+        Salary_Package[Starting Compensation Package:<br>• Base Salary: $150,000 - $200,000 USD<br>• India PPP Value: 35 Lakhs - 47 Lakhs INR/Year]
+        Long_Term_Stay[Long-Term US Stay Feasible & Secured For Both]
+        
+        Academia_Job --> Cap_Exempt
+        Cap_Exempt --> Salary_Package
+        Salary_Package --> Long_Term_Stay
+    end
+
+    Maintain_Ind --> Academia_Job
+    Frugal_Living --> Academia_Job
