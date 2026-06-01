@@ -6,9 +6,9 @@ graph TD
     style Realism_Note fill:#e2e3e5,stroke:#d6d8db,stroke-width:2px
 
     %% ---------------------------------------------
-    %% PHASE 1: START & ACADEMIC INPUTS
+    %% PHASE 1: ENTRY & MACRO UNCERTAINTY (2027-2029)
     %% ---------------------------------------------
-    subgraph Phase_1 [Phase 1: Entry & Macro Uncertainty 2027 - 2029]
+    subgraph Phase_1 [Phase 1: Entry & Academic Launch 2027 - 2029]
         Track_A1[BF TRACK:<br>ISI MSQE Delhi<br>Timeline: 2027 - 2029]
         
         Track_B1[GF TRACK:<br>VIT Graduation & Tech Job Search<br>Gaining 1-2 years India work experience<br>Timeline: 2027 - 2029]
@@ -21,15 +21,24 @@ graph TD
     Realism_Note --> Phase_1
 
     %% ---------------------------------------------
-    %% PHASE 2: THE GRIND & POLICY SHIFTS
+    %% THE CRITICAL ISI PERFORMANCE FILTER
+    %% ---------------------------------------------
+    Rank_Filter{ISI MSQE Performance Check}
+    Track_A1 --> Rank_Filter
+
+    %% ---------------------------------------------
+    %% PHASE 2: THE PARALLEL GRIND (2029-2032)
     %% ---------------------------------------------
     subgraph Phase_2 [Phase 2: The Parallel Grind 2029 - 2032]
-        Track_A2[BF TRACK:<br>Top 20 PhD Entry on F-1 Visa<br>Stipend: $35,000 - $55,000 USD<br>Living frugally, saving a buffer<br>Timeline: 2029 - 2035]
+        Track_A2[BF ELITE PATH:<br>Top 20 US PhD Entry on F-1 Visa<br>Stipend: $35,000 - $55,000 USD<br>Timeline: 2029 - 2035]
         
-        Track_B3[GF TRACK:<br>Graduation -> Enters 3-Year STEM OPT<br>Facing a competitive, post-election job market<br>Timeline: 2031 - 2034]
+        Track_A2_Alt[BF RESILIENT PATH:<br>Top 50-100 US PhD Entry on F-1 Visa<br>Excellent funding & identical visa safety<br>Timeline: 2029 - 2035]
+        
+        Track_B3[GF TRACK:<br>Graduation -> Enters 3-Year STEM OPT<br>Facing competitive post-election job market<br>Timeline: 2031 - 2034]
     end
     
-    Track_A1 --> Track_A2
+    Rank_Filter -- "Top 5% of Batch Achievement" --> Track_A2
+    Rank_Filter -- "Standard Elite Placement Window" --> Track_A2_Alt
     Track_B2 --> Track_B3
 
     %% ---------------------------------------------
@@ -54,26 +63,38 @@ graph TD
 
     L2 -- "Lottery Miss / Market Layoff" --> Marriage_Plan
     Track_A2 -.-> Marriage_Plan
+    Track_A2_Alt -.-> Marriage_Plan
 
     %% ---------------------------------------------
-    %% PHASE 4: THE ULTIMATE ANCHOR
+    %% PHASE 4: THE MULTI-TRACK FINISH LINE (2035+)
     %% ---------------------------------------------
-    subgraph Phase_4 [Phase 4: The Cap-Exempt Anchor 2035+]
-        Academia_Job[Mohith Secures Top 20 University Professorship]
-        Cap_Exempt[Transitions to Non-H-1B Cap-Exempt Status<br>Bypasses all commercial lottery limits entirely]
-        Salary_Package[Starting Academic Compensation:<br>• Base Salary: $150,000 - $200,000 USD<br>• Resolves household financial pressures]
+    subgraph Phase_4 [Phase 4: The Ultimate Long-Term Anchor 2035+]
+        
+        %% Outcome 1: Elite Academia
+        Academia_Top[Top 20 University Professorship<br>• Base: $150k - $200k USD<br>• Cap-Exempt H-1B Visa]
+        
+        %% Outcome 2: Core Academia Fallback
+        Academia_Mid[Top 50-100 University Professorship<br>• Stable, highly secure tenure-track<br>• Identical Cap-Exempt H-1B Visa safety]
+        
+        %% Outcome 3: High-Yield Industry
+        Private_Tech[Elite Private Sector Tech Economist<br>• Amazon / Uber / Corporate Hubs<br>• Salary: $200k+ USD<br>• EB-2 NIW / O-1 Visa Track]
+
         Secure_Future[Long-Term US Ecosystem Secured for Both]
         
-        Academia_Job --> Cap_Exempt
-        Cap_Exempt --> Salary_Package
-        Salary_Package --> Secure_Future
+        Academia_Top --> Secure_Future
+        Academia_Mid --> Secure_Future
+        Private_Tech --> Secure_Future
     end
 
-    %% Luck paths
+    %% Routing from Luck Paths
     L1 -- "Lucky Selection Year 1" --> Corporate_H1B[Independent Corporate H-1B]
     L2 -- "Lucky Selection Year 2" --> Corporate_H1B
-    Corporate_H1B --> Academia_Job
+    Corporate_H1B --> Private_Tech
     
-    %% Reality paths
-    F2_CoHab --> Academia_Job
-    Track_A2 -- "Graduation Window" --> Academia_Job
+    %% Routing from Reality Paths
+    F2_CoHab --> Academia_Top
+    Track_A2 -- "Elite Market Placement" --> Academia_Top
+    Track_A2_Alt -- "Core Market Placement" --> Academia_Mid
+    Track_A2 --> Private_Tech
+    Track_A2_Alt --> Private_Tech
+
