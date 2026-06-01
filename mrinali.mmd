@@ -1,11 +1,5 @@
 graph TD
     %% ---------------------------------------------
-    %% PERSONAL STANCE EMBEDDED TEXT NODE
-    %% ---------------------------------------------
-    Personal_Stance["PERSONAL STANCE & STRATEGIC ALIGNMENT:<br><br>'I didn't intend to hurt you. My own future remains uncertain,<br>but I focus strictly on the variables I can directly control—<br>like clearing my exams—even when the final outcomes are unpredictable.<br>Relationships involve too many external variables that are outside my control,<br>and honestly, I have no interest in pursuing a relationship right now.<br>Just because I like people does not mean I want to communicate with them;<br>I simply do not tolerate high uncertainty.<br><br>Please know that this strategic plan is solid and well-reasoned.<br>See if you can follow this blueprint or design your own alternative path,<br>which I am completely happy to look over and validate.<br>I optimize my life strictly for long-term utility—<br>if an element does not serve a long-term purpose, I discard it.'"]
-    style Personal_Stance fill:#fff,stroke:#dc3545,stroke-width:2px
-
-    %% ---------------------------------------------
     %% SYSTEM CONFIGURATION DATA NODES
     %% ---------------------------------------------
     Note_0[REALISM DATA CONFIG:<br>• H-1B Selection Rate: 20-30% Prc/Yr<br>• Macro Shift: Post-2028 Policy Adjust<br>• Realignment Phase: 2032-2033 Consolidation<br>• Operational Floor: PhD Stipend + Savings]
@@ -15,7 +9,6 @@ graph TD
     style Note_Personal fill:#f8d7da,stroke:#f5c6cb,stroke-width:2px
 
     %% CONNECTIONS TO CORE PROCESS
-    Personal_Stance --> Note_Personal
     Note_0 --> P1
     Note_Personal --> P1
 
@@ -94,3 +87,9 @@ graph TD
     A_PhD_T100 -- "Market Cleared" --> Out_Acad_T100
     A_PhD_T20 --> Out_Ind_Econ
     A_PhD_T100 --> Out_Ind_Econ
+
+    %% ---------------------------------------------
+    %% HORIZONTAL PERSONAL STANCE BANNER AT BOTTOM
+    %% ---------------------------------------------
+    System_Locked ==> Personal_Stance["PERSONAL STANCE & STRATEGIC ALIGNMENT:<br>'I didn't intend to hurt you. My own future remains uncertain, but I focus strictly on the variables I can directly control—like clearing my exams—even when the final outcomes are unpredictable. Relationships involve too many external variables that are outside my control, and honestly, I have no interest in pursuing a relationship right now. Just because I like people does not mean I want to communicate with them; I simply do not tolerate high uncertainty.<br>Please know that this strategic plan is solid and well-reasoned. See if you can follow this blueprint or design your own alternative path, which I am completely happy to look over and validate. I optimize my life strictly for long-term utility—if an element does not serve a long-term purpose, I discard it.'"]
+    style Personal_Stance fill:#fff,stroke:#dc3545,stroke-width:2px
