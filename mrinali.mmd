@@ -1,6 +1,12 @@
 graph TD
     %% ---------------------------------------------
-    %% DATA NODES & PARAMETERS
+    %% PERSONAL STANCE EMBEDDED TEXT NODE
+    %% ---------------------------------------------
+    Personal_Stance["PERSONAL STANCE & STRATEGIC ALIGNMENT:<br><br>'I didn't intend to hurt you. My own future remains uncertain,<br>but I focus strictly on the variables I can directly control—<br>like clearing my exams—even when the final outcomes are unpredictable.<br>Relationships involve too many external variables that are outside my control,<br>and honestly, I have no interest in pursuing a relationship right now.<br>Just because I like people does not mean I want to communicate with them;<br>I simply do not tolerate high uncertainty.<br><br>Please know that this strategic plan is solid and well-reasoned.<br>See if you can follow this blueprint or design your own alternative path,<br>which I am completely happy to look over and validate.<br>I optimize my life strictly for long-term utility—<br>if an element does not serve a long-term purpose, I discard it.'"]
+    style Personal_Stance fill:#fff,stroke:#dc3545,stroke-width:2px
+
+    %% ---------------------------------------------
+    %% SYSTEM CONFIGURATION DATA NODES
     %% ---------------------------------------------
     Note_0[REALISM DATA CONFIG:<br>• H-1B Selection Rate: 20-30% Prc/Yr<br>• Macro Shift: Post-2028 Policy Adjust<br>• Realignment Phase: 2032-2033 Consolidation<br>• Operational Floor: PhD Stipend + Savings]
     style Note_0 fill:#e2e3e5,stroke:#d6d8db,stroke-width:2px
@@ -8,7 +14,14 @@ graph TD
     Note_Personal[STRATEGIC MANDATE:<br>• Optimization Matrix: Strict Long-Term Utility Only<br>• Action: Discard non-serving variables<br>• Target: Control internal metrics over external variables]
     style Note_Personal fill:#f8d7da,stroke:#f5c6cb,stroke-width:2px
 
-    %% PHASE 1
+    %% CONNECTIONS TO CORE PROCESS
+    Personal_Stance --> Note_Personal
+    Note_0 --> P1
+    Note_Personal --> P1
+
+    %% ---------------------------------------------
+    %% PHASE 1: ENTRY & RANK FILTER (2027-2029)
+    %% ---------------------------------------------
     subgraph P1 [Phase 1: Entry & Rank Filter 2027 - 2029]
         A_MSQE[BF: ISI MSQE Delhi<br>Target: Top 5% Batch Rank<br>Timeline: 2027 - 2029]
         B_IND[GF: Corporate Tech India<br>Gain: 1-2 Yrs Experience<br>Timeline: 2027 - 2029]
@@ -17,14 +30,13 @@ graph TD
         B_IND --> B_USMS
     end
 
-    Note_0 --> P1
-    Note_Personal --> P1
-
     %% FILTERS & FORKS
     Rank_Check{Filter: ISI Rank == Top 5%?}
     A_MSQE --> Rank_Check
 
-    %% PHASE 2
+    %% ---------------------------------------------
+    %% PHASE 2: PARALLEL TRACKS (2029-2032)
+    %% ---------------------------------------------
     subgraph P2 [Phase 2: Parallel Tracks 2029 - 2032]
         A_PhD_T20[BF: Top 20 US PhD F-1<br>Stipend: $35k - $55k/Yr<br>Timeline: 2029 - 2035]
         A_PhD_T100[BF: Top 50-100 US PhD F-1<br>Stipend: Standard Fully Funded<br>Timeline: 2029 - 2035]
@@ -35,7 +47,9 @@ graph TD
     Rank_Check -- "False" --> A_PhD_T100
     B_USMS --> B_OPT
 
-    %% PHASE 3
+    %% ---------------------------------------------
+    %% PHASE 3: LOTTERY CYCLES & REALIGNMENT (2032-2034)
+    %% ---------------------------------------------
     subgraph P3 [Phase 3: Lottery Cycles & Realignment 2032 - 2034]
         L1[2032 H-1B Cap Registration: Cy1]
         L2[2033 H-1B Cap Registration: Cy2]
@@ -55,7 +69,9 @@ graph TD
     A_PhD_T20 -.-> M_33
     A_PhD_T100 -.-> M_33
 
-    %% PHASE 4
+    %% ---------------------------------------------
+    %% PHASE 4: TARGET STATE ANCHOR (2035+)
+    %% ---------------------------------------------
     subgraph P4 [Phase 4: Target State Anchor 2035+]
         Out_Acad_T20[Track 1: Top 20 Professorship<br>Comp: $150k - $200k/Yr<br>Visa: Cap-Exempt H-1B]
         Out_Acad_T100[Track 2: Top 100 Professorship<br>Comp: Institutional Scale<br>Visa: Cap-Exempt H-1B]
